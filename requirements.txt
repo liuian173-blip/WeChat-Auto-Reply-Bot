@@ -1,0 +1,35 @@
+flask>=2.3.0
+requests>=2.31.0
+
+
+D:
+cd \VScode\AI app
+VScode\AI app>cloudflared --version
+cloudflared tunnel --url http://localhost:5000
+
+project/
+├── app.py                 
+├── run_app.py             
+├── test_startup.py        
+├── config.py
+│
+├── services/
+│   ├── AI_client.py
+│   ├── wechat_handler.py
+│   └── image_handler.py
+│
+├── cores/
+│   ├── cache_manager.py
+│   ├── user_memory.py
+│   ├── content_filter.py
+│   ├── auto_cleaner.py
+│   └── performance_monitor.py
+│   └── async_task_manager.py
+│
+└── static/
+    ├── html/
+    ├── css/
+    └── js/
+
+
+

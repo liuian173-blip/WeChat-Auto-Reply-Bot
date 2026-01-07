@@ -1,0 +1,24 @@
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===== Virtual Env =====
+venv/
+.env/
+.env
+
+# ===== Secrets =====
+.env
+*.key
+*.pem
+
+# ===== Logs / Data =====
+*.log
+*.sqlite3
+data/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db

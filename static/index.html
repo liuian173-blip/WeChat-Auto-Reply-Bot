@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信AI助手 - 控制台</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <div>
+                <h1 data-i18n="headerTitle">🤖 微信AI助手控制台</h1>
+                <span class="status-badge" data-i18n="statusRunning">✓ 服务运行中</span>
+                <span class="refresh-indicator"></span>
+            </div>
+            <!-- 语言切换按钮 -->
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
+                <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">English</button>
+            </div>
+        </div>
+        
+        <div class="grid">
+            <!-- 系统状态卡片 -->
+            <div class="card">
+                <h3><span class="card-icon">⚙️</span><span data-i18n="systemStatus">系统状态</span></h3>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="apiKey">API Key</span>
+                    <span class="stat-value" id="api-key" data-i18n="loading">加载中...</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="startTime">启动时间</span>
+                    <span class="stat-value" id="start-time" data-i18n="loading">加载中...</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="runningPort">运行端口</span>
+                    <span class="stat-value" id="port" data-i18n="loading">加载中...</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="uptime">运行时长</span>
+                    <span class="stat-value" id="uptime" data-i18n="loading">加载中...</span>
+                </div>
+            </div>
+            
+            <!-- 性能监控卡片 -->
+            <div class="card" id="performance-card">
+                <h3><span class="card-icon">⚡</span><span data-i18n="performanceMonitor">性能监控</span></h3>
+                <div class="metric-big">
+                    <div class="value" id="avg-response">0<span style="font-size: 24px;">ms</span></div>
+                    <div class="label" data-i18n="avgResponseTime">平均响应时间</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="totalRequests">总请求数</span>
+                    <span class="stat-value" id="total-requests">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="cacheHitRate">缓存命中率</span>
+                    <span class="stat-value success" id="cache-hit-rate">0%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="slowRequests">慢请求</span>
+                    <span class="stat-value" id="slow-requests">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="timeoutRequests">超时请求</span>
+                    <span class="stat-value" id="timeout-requests">0</span>
+                </div>
+            </div>
+            
+            <!-- 缓存状态卡片 -->
+            <div class="card">
+                <h3><span class="card-icon">💾</span><span data-i18n="cacheStatus">缓存状态</span></h3>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="memoryCache">内存缓存</span>
+                    <span class="stat-value" id="memory-cache">0 <span data-i18n="items">条</span></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="dbCache">数据库缓存</span>
+                    <span class="stat-value" id="db-cache">0 <span data-i18n="items">条</span></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="cacheExpiry">缓存过期</span>
+                    <span class="stat-value" id="cache-ttl">0 <span data-i18n="minutes">分钟</span></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="maxCapacity">最大容量</span>
+                    <span class="stat-value" id="cache-max">0 <span data-i18n="items">条</span></span>
+                </div>
+            </div>
+            
+            <!-- 自动清理状态卡片 -->
+            <div class="card" id="cleanup-card">
+                <h3><span class="card-icon">🧹</span><span data-i18n="autoCleanup">自动清理</span></h3>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="runningStatus">运行状态</span>
+                    <span class="stat-value" id="cleanup-status" data-i18n="loading">加载中...</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="elapsed">已运行</span>
+                    <span class="stat-value" id="cleanup-elapsed">0 <span data-i18n="minutes">分钟</span></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="remaining">剩余时间</span>
+                    <span class="stat-value" id="cleanup-remaining">0 <span data-i18n="minutes">分钟</span></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="cleanupCount">清理次数</span>
+                    <span class="stat-value" id="cleanup-count">0 <span data-i18n="times">次</span></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="cleanedItems">已清理数据</span>
+                    <span class="stat-value" id="cleanup-items">0 <span data-i18n="items">条</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="cleanup-progress" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 操作按钮 -->
+        <div class="card">
+            <h3><span class="card-icon">🎛️</span><span data-i18n="quickActions">快速操作</span></h3>
+            <div class="button-group">
+                <a href="/dashboard" class="button" id="perf-dashboard-btn" data-i18n="perfDashboard">📊 性能仪表板</a>
+                <button class="button" onclick="runCleanup()" data-i18n="runCleanupNow">🧹 立即清理</button>
+                <button class="button secondary" onclick="showCacheStats()" data-i18n="cacheDetails">💾 缓存详情</button>
+                <button class="button secondary" onclick="showCleanupStatus()" data-i18n="cleanupDetails">📈 清理详情</button>
+                <button class="button secondary" onclick="checkHealth()" data-i18n="healthCheck">❤️ 健康检查</button>
+                <button class="button danger" onclick="shutdownServer()" data-i18n="stopService">⏻ 停止服务</button>
+            </div>
+        </div>
+        
+        <!-- 微信配置 -->
+        <div class="card">
+            <h3><span class="card-icon">📱</span><span data-i18n="wechatConfig">微信公众号配置</span></h3>
+            <div class="stat-item">
+                <span class="stat-label" data-i18n="serverUrl">服务器URL</span>
+                <span class="stat-value" style="font-size: 12px;">http://Your domain/wechat</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label" data-i18n="token">Token</span>
+                <span class="stat-value">Your token</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label" data-i18n="encryption">消息加解密</span>
+                <span class="stat-value" data-i18n="plaintextMode">明文模式</span>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p><span data-i18n="footerText">智谱AI微信助手 v3.5</span> | <span data-i18n="lastUpdate">最后更新</span>: <span id="last-update">--</span></p>
+        </div>
+    </div>
+    
+    <!-- 必须先加载 i18n.js -->
+    <script src="/static/i18n.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
