@@ -1,6 +1,6 @@
 # WeChat-Auto-Reply-Bot
 
-An advanced **WeChat Auto Reply Bot** designed to streamline and automate message responses for both individual and business users. This bot helps maintain communication with predefined responses and optionally integrates intelligent features like NLP (Natural Language Processing) for smarter replies.
+An advanced **WeChat Auto Reply Bot** designed to streamline and automate message responses for individual users. This bot helps maintain communication with predefined responses and optionally integrates intelligent features like NLP (Natural Language Processing) for smarter replies.
 
 ---
 
@@ -50,46 +50,13 @@ pip install -r requirements.txt
 > Note: Ensure you have Python 3.x or later installed.
 
 ### 3. Configuration
-- Open the `config.json` file and set the following:
-  - Keywords and responses.
-  - OpenAI API key (for smart replies).
+- Open the `.env.example` file and set the following:
+  - API key, Token and API URL .
 
 ### 4. Run the Bot
 ```bash
-python main.py
+python app.py
 ```
-For advanced options, see [Usage](#usage).
-
----
-
-## 🧰 Usage
-
-### Keyword-Based Mode
-- Configure `config.json` with custom rules:
-```json
-{
-  "auto_reply_rules": {
-    "hello": "Hi! How can I help you?",
-    "bye": "Goodbye! Have a great day!"
-  }
-}
-```
-
-### Smart Reply Mode
-- Add your OpenAI API key to the `config.json`:
-```json
-{
-  "openai_api_key": "sk-your-key",
-  "model": "gpt-3.5-turbo"
-}
-```
-
-Run with:
-```bash
-python main.py --smart-reply
-```
-
----
 
 ## 🚧 Limitations and Future Plans
 
@@ -129,7 +96,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 # 微信自动回复机器人
 
-一个高级的 **微信自动回复机器人**，旨在通过预设回复和智能化功能（如 NLP，自然语言处理）来简化并自动化短信回复任务。适合个人和企业用户使用，帮助您保持高效的联系。
+一个高级的 **微信自动回复机器人**，旨在通过预设回复和智能化功能（如 NLP，自然语言处理）来简化并自动化短信回复任务。适合个人用户使用，帮助您保持高效的联系。
 
 ---
 
@@ -179,44 +146,13 @@ pip install -r requirements.txt
 > 注意：确保已安装 Python 3.x 或更高版本。
 
 ### 3. 配置
-- 打开 `config.json` 文件，按照以下设置：
+- 打开 `.env.example` 文件，按照以下设置：
   - 自定义关键词与回复规则。
   - OpenAI API 密钥（如需智能回复）。
 
 ### 4. 运行程序
 ```bash
-python main.py
-```
-
-如果需了解更多运行选项，请查看 [使用说明](#使用说明)。
-
----
-
-## 🧰 使用说明
-
-### 基于关键词的回复模式
-- 修改 `config.json` 文件配置自动回复规则：
-```json
-{
-  "auto_reply_rules": {
-    "你好": "你好呀！请问有什么我能帮您的？",
-    "再见": "再见，祝您一天愉快！"
-  }
-}
-```
-
-### 智能回复模式
-- 添加 OpenAI API 密钥到 `config.json`：
-```json
-{
-  "openai_api_key": "sk-你的密钥",
-  "model": "gpt-3.5-turbo"
-}
-```
-
-运行以下命令启动智能回复：
-```bash
-python main.py --smart-reply
+python app.py
 ```
 
 ---
