@@ -29,7 +29,7 @@ An advanced **WeChat Auto Reply Bot** designed to streamline and automate messag
 
 - **WeChat Desktop Application** or Web Access.
 - **Python >= 3.x**.
-- Required Libraries: `selenium`, `requests`, etc. *(see [Installation](#installation))*.
+- Required Libraries: `selenium`, `requests`, etc.
 - An OpenAI API key *(if using GPT for smart replies)*.
 
 ---
@@ -84,15 +84,10 @@ We welcome contributions to improve the bot! If you'd like to contribute, please
 
 ## 🔒 License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
+This project is licensed under the MIT License.
 ---
 
-## 🙌 Acknowledgments
 
-- Thanks to developers of WeChat, Selenium, and OpenAI for offering such great tools.
-
----
 
 # 微信自动回复机器人
 
@@ -125,7 +120,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 - **微信桌面客户端** 或网页版微信。
 - **Python >= 3.x** 版本。
-- 必要依赖库：`selenium`, `requests` 等（见 [安装步骤](#安装步骤)）。
+- 必要依赖库：`selenium`, `requests` 等。
 - **OpenAI API 密钥**（如需使用智能回复功能）。
 
 ---
@@ -183,10 +178,5 @@ python app.py
 
 ## 🔒 许可证
 
-此项目遵循 MIT 开源许可证，详情请参见 [LICENSE](LICENSE)。
+此项目遵循 MIT 开源许可证。
 
----
-
-## 🙌 致谢
-
-- 感谢 WeChat、Selenium 和 OpenAI 等工具的开发者。
