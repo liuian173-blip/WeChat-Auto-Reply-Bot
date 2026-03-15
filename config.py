@@ -11,9 +11,8 @@ load_dotenv()  # 自动读取 .env
 WECHAT_TOKEN =os.getenv("WECHAT_TOKEN")
 
 # 智谱AI配置
-ZHIPU_API_KEY = os.getenv("AI_API_KEY")
-ZHIPU_API_URL = os.getenv("AI_API_URL") 
-
+ZHIPU_API_KEY = os.getenv("AI_API_KEY") #请确保在 .env.example 文件中正确设置了 AI_API_KEY
+ZHIPU_API_URL = os.getenv("AI_API_URL") #请确保在 .env.example 文件中正确设置了 AI_API_URL
 
 # 视觉模型配置
 VISION_MODEL = "glm-4v-flash"  # 视觉模型，支持图片理解
