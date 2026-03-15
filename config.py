@@ -12,7 +12,8 @@ WECHAT_TOKEN =os.getenv("WECHAT_TOKEN")
 
 # 智谱AI配置
 ZHIPU_API_KEY = os.getenv("AI_API_KEY")
-ZHIPU_API_URL = os.getenv("AI_API_URL")
+ZHIPU_API_URL = os.getenv("AI_API_URL") 
+
 
 # 视觉模型配置
 VISION_MODEL = "glm-4v-flash"  # 视觉模型，支持图片理解
